@@ -1,0 +1,8 @@
+#! /bin/bash
+
+if [[ $1 == *:* ]]
+then
+    /usr/local/bin/emacsclient -n +${1##*:} ${1%%:*}
+else
+    /usr/local/bin/emacsclient -n $1
+fi

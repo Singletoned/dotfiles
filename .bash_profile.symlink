@@ -1,3 +1,8 @@
 export PATH="/usr/local/sbin:/usr/local/bin:${PATH}"
 
 export PATH="~/bin:${PATH}"
+source ~/.envs/default/bin/activate
+export WORKON_HOME=$HOME/.envs
+export VIRTUALENVWRAPPER_PYTHON=~/.envs/default/bin/python
+source virtualenvwrapper.sh
+

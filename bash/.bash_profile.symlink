@@ -24,3 +24,18 @@ export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
 export mirror="wget -rkmpxE --adjust-extension --random-wait"
 
+# source ~/.profile
+
+# export HOMEBREW_GITHUB_API_TOKEN=291fef4e9176a902350d758f846dcb8370c76ec1
+
+if which pyenv > /dev/null; then
+    eval "$(pyenv init -)"
+fi
+
+if which pyenv-virtualenv-init > /dev/null; then
+    eval "$(pyenv virtualenv-init -)"
+fi
+
+# export AWS_CREDENTIAL_FILE=~/.elasticbeanstalk/aws_credential_file
+
+# export DOCKER_HOST=tcp://192.168.59.103:2375

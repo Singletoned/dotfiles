@@ -1,0 +1,41 @@
+export HISTCONTROL=erasedups
+export HISTSIZE=50000
+shopt -s histappend
+shopt -s cmdhist
+
+export PATH="/usr/local/sbin:/usr/local/bin:${PATH}"
+
+export PATH="~/bin:${PATH}"
+
+PS1='\n\[\e[32;1m\]\[\016\]\[\017\]-(\[\e[34;1m\]\u@\h\[\e[32;1m\])-(\[\e[34;1m\]\@ \d\[\e[32;1m\])\[\e[32;1m\]\n\[\016\]\[\017\]-(\[\[\e[32;1m\]\w\[\e[32;1m\])-$(__git_ps1 " (%s)" | sed "s/^ //")--> \[\e[0m\]'
+
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+  . `brew --prefix`/etc/bash_completion
+fi
+
+source ~/.envs/default/bin/activate
+export WORKON_HOME=$HOME/.envs
+export VIRTUALENVWRAPPER_PYTHON=~/.envs/default/bin/python
+source virtualenvwrapper.sh
+
+export PIP_REQUIRE_VIRTUALENV=true
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
+
+export mirror="wget -rkmpxE --adjust-extension --random-wait"
+
+# source ~/.profile
+
+# export HOMEBREW_GITHUB_API_TOKEN=291fef4e9176a902350d758f846dcb8370c76ec1
+
+if which pyenv > /dev/null; then
+    eval "$(pyenv init -)"
+fi
+
+if which pyenv-virtualenv-init > /dev/null; then
+    eval "$(pyenv virtualenv-init -)"
+fi
+
+# export AWS_CREDENTIAL_FILE=~/.elasticbeanstalk/aws_credential_file
+
+# export DOCKER_HOST=tcp://192.168.59.103:2375

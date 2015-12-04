@@ -42,3 +42,7 @@ function _update_ps1() {
 }
 
 export PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+
+export clean-git-remotes="git branch -r --merged | grep origin | grep -v '>' | grep -v master | grep -v develop | xargs -L1 | cut -d"/" -f2- | xargs git push origin --delete"
+
+export clean-git-local="git branch --merged | grep -v '\*' | grep -v master | grep -v develop | grep -v release | xargs -n 1 git branch -d"

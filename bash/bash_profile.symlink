@@ -23,9 +23,6 @@ export mirror="wget -rkmpxE --adjust-extension --random-wait"
 
 # source ~/.profile
 
-export HOMEBREW_GITHUB_API_TOKEN=04aa2ffb113e2cb2ca32bb97137188619f2fc340
-
-if which pyenv > /dev/null; then
     eval "$(pyenv init -)"
 fi
 

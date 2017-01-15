@@ -1,40 +1,44 @@
-# shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/.dotfiles
+export TERM='xterm-256color'
 
-# your project folder that we can `c [tab]` to
-export PROJECTS=~/Code
-
-# use .localrc for SUPER SECRET CRAP that you don't
-# want in your public, versioned repo.
-if [[ -a ~/.localrc ]]
-then
-  source ~/.localrc
-fi
-
-# all of our zsh files
-typeset -U config_files
-config_files=($ZSH/**/*.zsh)
-
-# load the path files
-for file in ${(M)config_files:#*/path.zsh}
-do
-  source $file
-done
-
-# load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
-do
-  source $file
-done
-
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
+autoload -Uz compinit
 compinit
 
-# load every completion after autocomplete loads
-for file in ${(M)config_files:#*/completion.zsh}
-do
-  source $file
-done
+bindkey -e
 
-unset config_files
+bindkey "\C-p" history-beginning-search-backward
+bindkey "\C-n" history-beginning-search-forward
+bindkey "\e[A" history-search-backward
+bindkey "\e[B" history-search-forward
+
+export PATH="/usr/local/sbin:/usr/local/bin:${PATH}"
+
+export PATH="${HOME}/bin:${HOME}/.dotfiles/bin:${PATH}"
+
+function _update_ps1()
+{
+    export PROMPT="$(~/.dotfiles/zsh/powerline-zsh.py -m compatible $?)"
+}
+
+precmd()
+{
+    _update_ps1
+}
+
+
+source ~/.envs/default/bin/activate
+export WORKON_HOME=$HOME/.envs
+export VIRTUALENVWRAPPER_PYTHON=~/.envs/default/bin/python
+source virtualenvwrapper.sh
+
+export PIP_REQUIRE_VIRTUALENV=false
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
+setopt APPENDHISTORY
+
+setopt NO_MENU_COMPLETE
+setopt BASH_AUTO_LIST
+setopt NO_AUTO_MENU

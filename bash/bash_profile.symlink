@@ -16,30 +16,32 @@ export WORKON_HOME=$HOME/.envs
 export VIRTUALENVWRAPPER_PYTHON=~/.envs/default/bin/python
 source virtualenvwrapper.sh
 
-export PIP_REQUIRE_VIRTUALENV=true
+export PIP_REQUIRE_VIRTUALENV=false
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 
-export mirror="wget -rkmpxE --adjust-extension --random-wait"
-
-# source ~/.profile
-
-    eval "$(pyenv init -)"
-fi
-
-if which pyenv-virtualenv-init > /dev/null; then
-    eval "$(pyenv virtualenv-init -)"
-fi
-
-# export AWS_CREDENTIAL_FILE=~/.elasticbeanstalk/aws_credential_file
-
-# export DOCKER_HOST=tcp://192.168.59.103:2375
 
 function _update_ps1() {
    export PS1="$(~/.dotfiles/bash/powerline-shell.py --mode=compatible $? 2> /dev/null)"
 }
 
-export PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+if [ "$TERM" != "linux" ]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
 
-export clean-git-remotes="git branch -r --merged | grep origin | grep -v '>' | grep -v master | grep -v develop | xargs -L1 | cut -d"/" -f2- | xargs git push origin --delete"
+export mirror="wget -rkmpxE --adjust-extension --random-wait"
 
-export clean-git-local="git branch --merged | grep -v '\*' | grep -v master | grep -v develop | grep -v release | xargs -n 1 git branch -d"
+# source ~/.profile
+
+# export AWS_CREDENTIAL_FILE=~/.elasticbeanstalk/aws_credential_file
+
+# export DOCKER_HOST=tcp://192.168.59.103:2375
+
+# export clean-git-remotes="git branch -r --merged | grep origin | grep -v '>' | grep -v master | grep -v develop | xargs -L1 | cut -d'/' -f2- | xargs git push origin --delete"
+
+# export clean-git-local="git branch --merged | grep -v '\*' | grep -v master | grep -v develop | grep -v release | xargs -n 1 git branch -d"
+
+alias dc=docker-compose
+
+alias docker-clean='docker rm -v $(docker ps -a -q -f status=exited) && docker rmi $(docker images -f "dangling=true" -q)'
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"

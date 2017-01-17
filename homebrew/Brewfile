@@ -1,4 +1,6 @@
-
+cask 'google-chrome'
+cask 'firefox'
+cask 'opera'
 
 mas 'Keynote', id: 409183694
 mas 'Color Picker', id: 641027709
@@ -15,3 +17,48 @@ mas 'Pages', id: 409201541
 mas 'DaisyDisk', id: 411643860
 mas 'iMovie', id: 408981434
 mas 'OmniGraffle', id: 1142578753
+
+
+ack
+cmake
+sqlite
+node
+ssh-copy-id
+python
+python3
+sshuttle
+imagemagick
+git
+the_silver_searcher
+tig
+bash-completion
+editorconfig
+jq
+brew-cask-completion
+emacs-mac
+wget
+libxml2
+sl
+cloc
+mas
+zsh
+
+
+1password
+dropbox
+racket
+slack
+karabiner
+
+karabiner-elements
+xquartz
+font-inconsolata
+font-ubuntu
+font-andale-mono
+font-cutive-mono
+font-input
+google-chrome
+vagrant
+font-dejavu-sans-mono-for-powerline
+font-source-code-pro
+virtualbox

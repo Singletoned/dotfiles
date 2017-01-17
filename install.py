@@ -8,7 +8,7 @@ def symlink(p):
     target = os.path.join(HOME, "."+p.split('.symlink')[0])
     if not os.path.exists(target):
         print(source, target)
-        # os.symlink(source, target)
+        os.symlink(source, target)
 
 def link_files():
     for root, dirs, files in os.walk(__here__):

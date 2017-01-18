@@ -12,6 +12,9 @@ def symlink(p):
 
 def link_files():
     for root, dirs, files in os.walk(__here__):
+        if ".git" in dirs:
+            dirs.remove(".git")
+        print(root, dirs, files)
         for d in list(dirs):
             if d.endswith(".symlink"):
                 symlink(d)

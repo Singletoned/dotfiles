@@ -6,8 +6,11 @@ __here__ = __here__ = os.path.abspath(os.path.dirname(__file__))
 HOME = os.environ['HOME']
 
 def symlink(root, p):
+    base = os.path.join(HOME, "".join(root.split(__here__)).strip("/"))
     source = os.path.join(root, p)
-    target = os.path.join(HOME, "."+p.split('.symlink')[0])
+    target = os.path.join(base, "."+p.split('.symlink')[0])
+    if not os.path.exists(base):
+        os.makedirs(base)
     if not os.path.exists(target):
         print("Linking %s to %s" % (source, target))
         os.symlink(source, target)

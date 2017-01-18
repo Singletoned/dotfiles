@@ -1,16 +1,17 @@
 [hub]
     protocol = https
 [user]
-    name= AUTHORNAME
-    email = AUTHOREMAIL
+    name= Ed Singleton
+    email = singletoned@gmail.com
 [credential]
-    helper = GIT_CREDENTIAL_HELPER
+    helper = osxkeychain
 [alias]
     ci = commit
     co = checkout
     st = status
     br = branch
     count = !git shortlog -sn
+    slurp = cherry-pick
 [color]
     diff = auto
     status = auto

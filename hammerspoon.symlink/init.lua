@@ -59,9 +59,6 @@ end
 
 local keys = map(makeHotKey, mappings)
 
-for k, v in pairs(keys) do print(k, v) end
-
-
 function enableHotKey(key)
    key:enable()
    return key
@@ -73,11 +70,6 @@ function disableHotKey(key)
 end
 
 map(enableHotKey, keys)
-
-print("keys 1")
-for k, v in pairs(keys) do print(k, v) end
-
-for k, v in pairs(mappings) do print(k, v) end
 
 hs.window.filter.new('Emacs')
     :subscribe(hs.window.filter.windowFocused,function() map(disableHotKey, keys) end)

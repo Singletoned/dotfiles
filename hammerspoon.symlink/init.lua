@@ -38,18 +38,19 @@ function map(func, tbl)
 end
 
 local mappings = {
-   { key='b', mod={}, char='left'},
-   { key='n', mod={}, char='down'},
-   { key='p', mod={}, char='up'},
-   { key='f', mod={}, char='right'},
-   { key='a', mod={'cmd'}, char='left'},
-   { key='e', mod={'cmd'}, char='right'},
-   { key='w', mod={'alt'}, char='delete'}}
+   { key='ctrl+b', mod={}, char='left'},
+   { key='ctrl+n', mod={}, char='down'},
+   { key='ctrl+p', mod={}, char='up'},
+   { key='ctrl+f', mod={}, char='right'},
+   { key='ctrl+a', mod={'cmd'}, char='left'},
+   { key='ctrl+e', mod={'cmd'}, char='right'},
+   { key='ctrl+w', mod={'alt'}, char='delete'}}
 
 function makeHotKey(hotkey)
+   pair = string.split(hotkey.key, "+")
    local newkey = hs.hotkey.new(
-      "ctrl",
-      hotkey.key,
+      pair[1],
+      pair[2],
       function() doKeyStroke(hotkey) end,
       nil,
       nil)

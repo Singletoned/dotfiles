@@ -44,7 +44,10 @@ local mappings = {
    { key='ctrl+f', mod={}, char='right'},
    { key='ctrl+a', mod={'cmd'}, char='left'},
    { key='ctrl+e', mod={'cmd'}, char='right'},
-   { key='ctrl+w', mod={'alt'}, char='delete'}}
+   { key='ctrl+w', mod={'alt'}, char='delete'},
+   { key='alt+f', mod={'alt'}, char='right'},
+   { key='alt+b', mod={'alt'}, char='left'},
+}
 
 function makeHotKey(hotkey)
    pair = string.split(hotkey.key, "+")

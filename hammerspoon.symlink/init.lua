@@ -33,7 +33,6 @@ end
 
 local keys = map(makeHotKey, mappings)
 
-print("keys 1")
 for k, v in pairs(keys) do print(k, v) end
 
 

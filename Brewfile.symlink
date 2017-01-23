@@ -1,64 +1,64 @@
-cask 'google-chrome'
+tap 'caskroom/cask'
+tap 'caskroom/fonts'
+tap 'caskroom/versions'
+tap 'homebrew/bundle'
+tap 'homebrew/core'
+brew 'mas'
+
+# Emacs
+tap 'railwaycat/emacsmacport'
+brew 'railwaycat/emacsmacport/emacs-mac', args: ['with-modern-icon']
+
+brew 'ack'
+brew 'bash-completion'
+brew 'git'
+brew 'libyaml'
+brew 'readline'
+brew 'sqlite'
+brew 'python'
+brew 'python3'
+brew 'ruby'
+brew 'the_silver_searcher'
+brew 'tig'
+brew 'wget'
+brew 'zsh'
+brew 'ssh-copy-id'
+
 cask 'firefox'
+cask 'google-chrome'
+cask 'google-chrome-canary'
 cask 'opera'
 
-mas 'Keynote', id: 409183694
-mas 'Color Picker', id: 641027709
-mas 'iPhoto', id: 408981381
+cask 'alfred'
+cask 'dropbox'
+cask 'hammerspoon'
+cask 'iterm2'
+cask 'racket'
+cask 'slack'
+cask 'spotify'
+cask 'virtualbox'
+cask 'xquartz'
+
+cask 'font-andale-mono'
+cask 'font-cutive-mono'
+cask 'font-dejavu-sans-mono-for-powerline'
+cask 'font-inconsolata'
+cask 'font-input'
+cask 'font-source-code-pro'
+cask 'font-ubuntu'
+
 mas 'The Unarchiver', id: 425424353
-mas 'ClamXav', id: 430207028
+mas 'Keynote', id: 409183694
 mas 'Twitter', id: 409789998
-mas 'Acorn', id: 402280036
+mas 'iPhoto', id: 408981381
+mas 'ClamXav', id: 430207028
 mas '1Password', id: 443987910
-mas 'Pixelmator', id: 407963104
-mas 'Wunderlist', id: 410628904
-mas 'Numbers', id: 409203825
-mas 'Pages', id: 409201541
-mas 'DaisyDisk', id: 411643860
 mas 'iMovie', id: 408981434
 mas 'OmniGraffle', id: 1142578753
-
-
-ack
-cmake
-sqlite
-node
-ssh-copy-id
-python
-python3
-sshuttle
-imagemagick
-git
-the_silver_searcher
-tig
-bash-completion
-editorconfig
-jq
-brew-cask-completion
-emacs-mac
-wget
-libxml2
-sl
-cloc
-mas
-zsh
-
-
-1password
-dropbox
-racket
-slack
-karabiner
-
-karabiner-elements
-xquartz
-font-inconsolata
-font-ubuntu
-font-andale-mono
-font-cutive-mono
-font-input
-google-chrome
-vagrant
-font-dejavu-sans-mono-for-powerline
-font-source-code-pro
-virtualbox
+mas 'Acorn', id: 402280036
+mas 'Wunderlist', id: 410628904
+mas 'Color Picker', id: 641027709
+mas 'Pixelmator', id: 407963104
+mas 'Pages', id: 409201541
+mas 'Numbers', id: 409203825
+mas 'DaisyDisk', id: 411643860

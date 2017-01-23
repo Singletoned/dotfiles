@@ -74,6 +74,6 @@ end
 
 map(enableHotKey, keys)
 
-hs.window.filter.new('Emacs')
+hs.window.filter.new{'iTerm2','Emacs'}
     :subscribe(hs.window.filter.windowFocused,function() map(disableHotKey, keys) end)
     :subscribe(hs.window.filter.windowUnfocused,function() map(enableHotKey, keys) end)

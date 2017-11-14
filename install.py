@@ -5,6 +5,7 @@ import os
 __here__ = __here__ = os.path.abspath(os.path.dirname(__file__))
 HOME = os.environ['HOME']
 
+
 def symlink(root, p):
     base = os.path.join(HOME, "".join(root.split(__here__)).strip("/"))
     source = os.path.join(root, p)
@@ -14,6 +15,7 @@ def symlink(root, p):
     if not os.path.exists(target):
         print("Linking %s to %s" % (source, target))
         os.symlink(source, target)
+
 
 def link_files():
     for root, dirs, files in os.walk(__here__):
@@ -26,6 +28,7 @@ def link_files():
         for f in files:
             if f.endswith(".symlink"):
                 symlink(root, f)
+
 
 if __name__ == '__main__':
     link_files()

@@ -13,6 +13,7 @@ fi
 
 source ~/.envs/default/bin/activate
 export WORKON_HOME=$HOME/.envs
+export PROJECT_HOME=$HOME/src
 export VIRTUALENVWRAPPER_PYTHON=~/.envs/default/bin/python
 source virtualenvwrapper.sh
 

@@ -10,11 +10,22 @@ if [ ! -d ~/.envs ]; then
     mkdir ~/.envs
 fi
 
-pip install virtualenvwrapper
+export PIP_REQUIRE_VIRTUALENV=false
+export VIRTUALENVWRAPPER_PYTHON=python3
+
+pip3 install pip virtualenv setuptools
+pip3 install virtualenvwrapper
 source virtualenvwrapper.sh
 if [ ! -d ~/.envs/default ]; then
     mkvirtualenv default
 fi
 workon default
-pip install virtualenvwrapper
+
 pip install ipython
+
+if [ ! -d ~/.envs/powerline ]; then
+    mkvirtualenv powerline
+    workon powerline
+    pip install powerline-shell
+fi
+

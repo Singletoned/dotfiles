@@ -67,24 +67,8 @@ cask "font-input"
 cask "font-source-code-pro"
 cask "font-ubuntu"
 
-mas "1Password", id: 443987910
-mas "Acorn", id: 402280036
-mas "ClamXav", id: 430207028
 mas "Color Picker", id: 641027709
 mas "DaisyDisk", id: 411643860
-mas "iMovie", id: 408981434
-mas "iPhoto", id: 408981381
-mas "Keynote", id: 409183694
-mas "Kindle", id: 405399194
-mas "Markoff", id: 1084713122
-mas "Numbers", id: 409203825
-mas "OmniGraffle", id: 1142578753
-mas "OmniOutliner", id: 1142578772
-mas "Pages", id: 409201541
-mas "Pixelmator", id: 407963104
 mas "The Unarchiver", id: 425424353
-mas "Tomato One", id: 907364780
-mas "Twitter", id: 409789998
 mas "WiFi Signal", id: 525912054
-mas "Wunderlist", id: 410628904
 mas "WhatsApp", id: 1147396723

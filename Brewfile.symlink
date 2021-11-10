@@ -1,6 +1,5 @@
-tap "caskroom/cask"
-tap "caskroom/fonts"
-tap "caskroom/versions"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
 tap "Singletoned/deadsnakes"
 tap "heroku/brew"
 tap "homebrew/bundle"
@@ -37,6 +36,7 @@ brew "swi-prolog"
 brew "the_silver_searcher"
 brew "tig"
 brew "wget"
+brew "cmatrix"
 
 brew "zsh"
 brew "zsh-completions"
@@ -51,7 +51,7 @@ cask "alfred"
 cask "atom"
 cask "docker"
 cask "firefox"
-cask "firefoxdeveloperedition"
+cask "firefox-developer-edition"
 cask "google-chrome"
 cask "hammerspoon"
 cask "iterm2"
@@ -61,16 +61,20 @@ cask "qlmarkdown"
 cask "racket"
 cask "slack"
 cask "spotify"
+cask "spectacle"
+cask "google-chrome-canary"
+cask "choosy"
+cask "whatsapp"
+cask "macpass"
+cask "vivaldi"
 
-cask "caskroom/versions/google-chrome-canary"
-
-cask "caskroom/fonts/font-andale-mono"
-cask "caskroom/fonts/font-cutive-mono"
-cask "caskroom/fonts/font-dejavu-sans-mono-for-powerline"
-cask "caskroom/fonts/font-inconsolata"
-cask "caskroom/fonts/font-input"
-cask "caskroom/fonts/font-source-code-pro"
-cask "caskroom/fonts/font-ubuntu"
+cask "font-andale-mono"
+cask "font-cutive-mono"
+cask "font-dejavu-sans-mono-nerd-font"
+cask "font-inconsolata"
+cask "font-input"
+cask "font-source-code-pro"
+cask "font-ubuntu"
 
 mas "1Password", id: 443987910
 mas "Acorn", id: 402280036
@@ -92,3 +96,4 @@ mas "Tomato One", id: 907364780
 mas "Twitter", id: 409789998
 mas "WiFi Signal", id: 525912054
 mas "Wunderlist", id: 410628904
+mas "WhatsApp", id: 1147396723

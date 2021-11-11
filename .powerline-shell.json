@@ -1,9 +1,0 @@
-{
-  "segments": [
-    "virtual_env",
-    "cwd",
-    "git",
-    "jobs",
-    "root"
-  ]
-}

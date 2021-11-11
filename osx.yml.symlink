@@ -1,5 +1,0 @@
-user:
-  org.hammerspoon.Hammerspoon:
-    MJConfigFile: "~/.config/hammerspoon/init.lua"
-  com.apple.helpviewer:
-    DevMode: true

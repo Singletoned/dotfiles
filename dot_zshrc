@@ -24,11 +24,7 @@ bindkey "\C-n" history-beginning-search-forward
 bindkey "\e[A" history-search-backward
 bindkey "\e[B" history-search-forward
 
-source ~/.dotfiles/zsh/aliases.zsh
-
-export PATH="/usr/local/sbin:/usr/local/bin:${PATH}"
-
-export PATH="${HOME}/bin:${HOME}/.dotfiles/bin:${PATH}"
+export PATH="${HOME}/bin:${PATH}"
 
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 

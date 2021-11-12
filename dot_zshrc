@@ -6,6 +6,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 eval $(ssh-agent)
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 export TERM='xterm-256color'
 
 if type brew &>/dev/null; then

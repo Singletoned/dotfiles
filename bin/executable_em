@@ -2,7 +2,7 @@
 
 if [[ $1 == *:* ]]
 then
-    /usr/local/bin/emacsclient -n +${1##*:} ${1%%:*}
+    $(brew --prefix)/bin/emacsclient -n +${1##*:} ${1%%:*}
 else
-    /usr/local/bin/emacsclient -n $1
+    $(brew --prefix)/bin/emacsclient -n $1
 fi

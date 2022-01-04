@@ -3,9 +3,6 @@
 
 set -e
 
-cd "$(dirname "$0")/.."
-DOTFILES_ROOT=$(pwd)
-
 if [ ! -d ~/.envs ]; then
     mkdir ~/.envs
 fi

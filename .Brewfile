@@ -1,20 +1,20 @@
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
-tap "heroku/brew"
 tap "homebrew/bundle"
 tap "homebrew/core"
 tap "railwaycat/emacsmacport"
-
+tap "romkatv/powerlevel10k"
 cask "xquartz"
 
-brew "ack"
+brew "powerlevel10k"
+
+brew "svn"
+brew "chezmoi"
 brew "automake"
 brew "sqlite"
 brew "bash-completion"
 brew "docker-clean"
 brew "git"
-brew "docker-completion"
-brew "docker-compose-completion"
 brew "dos2unix"
 brew "editorconfig"
 brew "fd"
@@ -39,14 +39,13 @@ brew "cmatrix"
 brew "zsh"
 brew "zsh-completions"
 
-brew "railwaycat/emacsmacport/emacs-mac", args: ["with-modern-icon"]
+brew "railwaycat/emacsmacport/emacs-mac", args: ["with-emacs-sexy-icon", "with-starter"]
 
 cask "atom"
-cask "docker"
+cask "1password"
 cask "firefox"
 cask "firefox-developer-edition"
 cask "google-chrome"
-cask "hammerspoon"
 cask "iterm2"
 cask "karabiner-elements"
 cask "opera"
@@ -55,9 +54,7 @@ cask "spotify"
 cask "spectacle"
 cask "google-chrome-canary"
 cask "choosy"
-cask "whatsapp"
-cask "macpass"
-cask "vivaldi"
+cask "raycast"
 
 cask "font-andale-mono"
 cask "font-cutive-mono"
@@ -66,6 +63,7 @@ cask "font-inconsolata"
 cask "font-input"
 cask "font-source-code-pro"
 cask "font-ubuntu"
+cask "font-meslo-for-powerline"
 
 mas "Color Picker", id: 641027709
 mas "DaisyDisk", id: 411643860

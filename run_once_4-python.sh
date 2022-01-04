@@ -11,8 +11,8 @@ fi
 export PIP_REQUIRE_VIRTUALENV=false
 export VIRTUALENVWRAPPER_PYTHON=python3
 
-python -m pip install --upgrade pip virtualenv setuptools
-python -m pip install --upgrade virtualenvwrapper
+python3 -m pip install --upgrade pip virtualenv setuptools
+python3 -m pip install --upgrade virtualenvwrapper
 
 source virtualenvwrapper.sh
 if [ ! -d ~/.envs/default ]; then
@@ -20,11 +20,11 @@ if [ ! -d ~/.envs/default ]; then
 fi
 workon default
 
-python -m pip install --upgrade ipython
+python3 -m pip install --upgrade ipython
 
 if [ ! -d ~/.envs/emacs ]; then
     mkvirtualenv emacs
     workon emacs
-    python -m pip install --upgrade black flake8 isort
+    python3 -m pip install --upgrade black flake8 isort
 fi
 

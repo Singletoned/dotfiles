@@ -3,7 +3,9 @@
 
 sudo -v
 
-sudo softwareupdate --install-rosetta
+if [[ ! -d /usr/libexec/rosetta ]]; then
+   sudo softwareupdate --install-rosetta
+fi
 
 # .Brewfile hash: {{ include ".Brewfile" | sha256sum }}
 

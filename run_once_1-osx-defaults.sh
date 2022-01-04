@@ -1,3 +1,9 @@
+#!/bin/bash
+
+set -o errexit
+set -o nounset
+
+
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true

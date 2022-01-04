@@ -9,7 +9,7 @@
     ci = commit
     co = checkout
     st = status
-    br = branch
+    br = !git branch --sort=-committerdate
     count = !git shortlog -sn
     slurp = cherry-pick
 [color]

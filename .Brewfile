@@ -17,6 +17,7 @@ brew "imagemagick"
 brew "ispell"
 brew "mas"
 brew "starship"
+brew "wkhtmltopdf"
 
 brew "pandoc"
 

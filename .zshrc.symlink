@@ -1,6 +1,8 @@
 eval $(ssh-agent)
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+eval "$(starship init zsh)"
+
 export TERM='xterm-256color'
 
 if type brew &>/dev/null

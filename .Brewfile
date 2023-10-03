@@ -16,6 +16,7 @@ brew "fd"
 brew "imagemagick"
 brew "ispell"
 brew "mas"
+brew "starship"
 
 brew "pandoc"
 

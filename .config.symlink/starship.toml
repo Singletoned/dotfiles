@@ -1,0 +1,13 @@
+[python]
+format = 'via [${symbol}(\($virtualenv\) )]($style)'
+symbol = '🐍'
+
+[directory]
+truncation_length = 3
+truncation_symbol = '…/'
+truncate_to_repo = false
+
+[time]
+disabled = false
+format = '🕙 [$time]($style) '
+time_format = '%F %T'

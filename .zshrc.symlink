@@ -49,3 +49,12 @@ export RIPGREP_CONFIG_PATH="${HOME}/.config/ripgrep"
 # alias mirror="wget -rkmpxE --adjust-extension --random-wait"
 alias create-project="mkvirtualenv ${PWD##*/} && setvirtualenvproject && pip install -r requirements.txt"
 # alias load_env="export $(cat .env | xargs)"
+
+em() {
+    if [[ $1 == *:* ]]
+    then
+	$(brew --prefix)/bin/emacsclient -n +${1##*:} ${1%%:*}
+    else
+	$(brew --prefix)/bin/emacsclient -n $1
+    fi
+}

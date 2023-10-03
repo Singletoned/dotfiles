@@ -45,9 +45,6 @@ setopt NO_AUTO_MENU
 
 export RIPGREP_CONFIG_PATH="${HOME}/.config/ripgrep"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # alias reload!='. ~/.zshrc'
 # alias mirror="wget -rkmpxE --adjust-extension --random-wait"
 alias create-project="mkvirtualenv ${PWD##*/} && setvirtualenvproject && pip install -r requirements.txt"

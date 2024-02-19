@@ -1,8 +1,3 @@
-[hub]
-    protocol = https
-[user]
-    name= Ed Singleton
-    email = singletoned@gmail.com
 [credential]
     helper = osxkeychain
 [alias]
@@ -35,3 +30,7 @@
     autoupdate = true
 [rebase]
     instructionFormat = (%an <%ae>) %s
+[init]
+    defaultBranch = main
+[includeIf "gitdir:~/src/ukhsa/"]
+    path = ~/src/ukhsa/.gitconfig

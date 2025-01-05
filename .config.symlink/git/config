@@ -32,3 +32,5 @@
     instructionFormat = (%an <%ae>) %s
 [init]
     defaultBranch = main
+[branch]
+    sort = -committerdate

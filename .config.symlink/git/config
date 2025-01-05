@@ -34,3 +34,6 @@
     defaultBranch = main
 [branch]
     sort = -committerdate
+[user]
+    name = Ed Singleton
+    email = singletoned@gmail.com

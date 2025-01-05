@@ -1,1 +1,3 @@
 --sort-files
+--max-columns=1024
+--max-columns-preview

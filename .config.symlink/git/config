@@ -32,5 +32,3 @@
     instructionFormat = (%an <%ae>) %s
 [init]
     defaultBranch = main
-[includeIf "gitdir:~/src/ukhsa/"]
-    path = ~/src/ukhsa/.gitconfig

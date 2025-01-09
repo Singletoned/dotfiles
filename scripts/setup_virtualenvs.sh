@@ -10,9 +10,6 @@ if [ ! -d ~/.envs ]; then
     export VIRTUALENVWRAPPER_PYTHON=python3
     export WORKON_HOME=$HOME/.envs
 
-    python3 -m pip install --upgrade pip virtualenv setuptools
-    python3 -m pip install --upgrade virtualenvwrapper
-
 fi
 
 if [ ! -d ~/.envs/default ]; then

@@ -1,12 +1,11 @@
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
 tap "homebrew/bundle"
-tap "homebrew/core"
+tap "railwaycat/emacsmacport"
+
+cask "railwaycat/emacsmacport/emacs-mac"
 
 cask "xquartz"
 
 brew "svn"
-brew "chezmoi"
 brew "automake"
 brew "sqlite"
 brew "git"
@@ -34,6 +33,7 @@ brew "cmatrix"
 brew "zsh"
 brew "zsh-completions"
 
+cask "ghostty"
 cask "atom"
 cask "firefox"
 cask "firefox-developer-edition"
@@ -43,10 +43,10 @@ cask "karabiner-elements"
 cask "opera"
 cask "spotify"
 cask "spectacle"
-cask "google-chrome-canary"
+cask "google-chrome@canary"
 cask "choosy"
-cask "raycast"
 cask "floorp"
+cask "alfred"
 
 cask "font-andale-mono"
 cask "font-cutive-mono"
@@ -61,3 +61,4 @@ mas "DaisyDisk", id: 411643860
 mas "The Unarchiver", id: 425424353
 mas "WiFi Signal", id: 525912054
 mas "WhatsApp", id: 1147396723
+mas "Consent-O-Matic" id: 1606897889

@@ -7,6 +7,7 @@
     br = !git branch --sort=-committerdate
     count = !git shortlog -sn
     slurp = cherry-pick
+    out = log @{u}..
 [color]
     diff = auto
     status = auto

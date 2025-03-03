@@ -49,6 +49,8 @@ cask "choosy"
 cask "floorp"
 cask "alfred"
 cask "whatsapp"
+cask "visual-studio-code"
+cask "iina"
 
 cask "font-andale-mono"
 cask "font-cutive-mono"

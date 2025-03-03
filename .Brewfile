@@ -17,8 +17,9 @@ brew "ispell"
 brew "mas"
 brew "starship"
 brew "wkhtmltopdf"
-
 brew "pandoc"
+brew "aspell"
+brew "hunspell"
 
 brew "python"
 

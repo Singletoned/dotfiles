@@ -47,6 +47,7 @@ cask "google-chrome@canary"
 cask "choosy"
 cask "floorp"
 cask "alfred"
+cask "whatsapp"
 
 cask "font-andale-mono"
 cask "font-cutive-mono"
@@ -60,5 +61,4 @@ cask "font-meslo-for-powerline"
 mas "DaisyDisk", id: 411643860
 mas "The Unarchiver", id: 425424353
 mas "WiFi Signal", id: 525912054
-mas "WhatsApp", id: 1147396723
 mas "Consent-O-Matic" id: 1606897889

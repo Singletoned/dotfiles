@@ -14,9 +14,18 @@ insert_final_newline = true
 charset = utf-8
 
 # 4 space indentation
-[*.py,*.md]
+[*.{py,md}]
 indent_style = space
 indent_size = 4
 
-[*.{js,json,yml,yaml,html,scss,css}]
+[*.{js,json,yml,yaml,toml,html,scss,css}]
 indent_size = 2
+indent_style = space
+
+[Justfile]
+indent_style = space
+indent_size = 4
+
+[*.sql]
+indent_style = space
+indent_size = 4

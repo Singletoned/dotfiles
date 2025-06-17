@@ -20,9 +20,9 @@ bindkey "\C-n" history-beginning-search-forward
 bindkey "\e[A" history-search-backward
 bindkey "\e[B" history-search-forward
 
-export PATH="${HOME}/bin:${PATH}"
 XDG_CONFIG_HOME="$HOME/.config"
 
+export PATH="${HOME}/.local/bin:${HOME}/bin:${PATH}"
 
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 

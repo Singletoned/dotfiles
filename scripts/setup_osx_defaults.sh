@@ -3,6 +3,13 @@
 set -o errexit
 set -o nounset
 
+echo "⚙️  Configuring macOS system preferences..."
+
+# Check if defaults command is available
+if ! command -v defaults &> /dev/null; then
+    echo "❌ Error: defaults command not found. This script requires macOS."
+    exit 1
+fi
 
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
@@ -63,3 +70,5 @@ defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock "orientation" -string "left"
 
 killall Dock
+
+echo "✅ macOS preferences configured successfully"

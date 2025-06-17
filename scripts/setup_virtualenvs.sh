@@ -3,6 +3,14 @@
 set -o errexit
 set -o nounset
 
+echo "🐍 Setting up Python virtual environments..."
+
+# Check dependencies
+if ! command -v python3 &> /dev/null; then
+    echo "❌ Error: python3 is required but not found. Run 'make bootstrap' first."
+    exit 1
+fi
+
 if [ ! -d ~/.envs ]; then
     mkdir ~/.envs
 
@@ -21,3 +29,5 @@ if [ ! -d ~/.envs/emacs ]; then
     python3 -m venv ~/.envs/emacs
     ~/.envs/emacs/bin/python3 -m pip install --upgrade black flake8 isort
 fi
+
+echo "✅ Virtual environments setup complete"

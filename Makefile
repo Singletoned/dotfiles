@@ -6,5 +6,10 @@ install: bootstrap
 	python3 scripts/install.py
 	sh scripts/setup_osx_defaults.sh
 	sh scripts/symlinks.sh
+	sh scripts/verify.sh
+	@echo "🎉 Installation completed successfully!"
 
-.PHONY: bootstrap install
+verify:
+	sh scripts/verify.sh
+
+.PHONY: bootstrap install verify

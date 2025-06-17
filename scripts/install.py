@@ -5,6 +5,7 @@ __here__ = pathlib.Path(__file__).parent
 BASE_DIR = __here__.parent
 HOME = pathlib.Path(os.environ['HOME']).resolve()
 
+print("🔗 Creating symlinks...")
 
 def symlink(root, p):
     source = root / p
@@ -35,4 +36,5 @@ def link_files():
 
 if __name__ == '__main__':
     link_files()
+    print("✅ Symlinks created successfully")
 

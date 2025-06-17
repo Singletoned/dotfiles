@@ -53,6 +53,7 @@ alias create-project="mkvirtualenv ${PWD##*/} && setvirtualenvproject && pip ins
 # alias load_env="export $(cat .env | xargs)"
 
 em() {
+     osascript -e 'tell application "System Events" to set frontmost of process "Emacs" to true'
     if [[ $1 == *:* ]]
     then
 	$(brew --prefix)/bin/emacsclient -n +${1##*:} ${1%%:*}

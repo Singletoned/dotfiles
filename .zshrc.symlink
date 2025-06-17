@@ -3,6 +3,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 eval "$(starship init zsh)"
 
+[ -f ~/.aliases ] && source ~/.aliases
+
 export TERM='xterm-256color'
 
 if type brew &>/dev/null

@@ -1,0 +1,1 @@
+alias clean-pug='bunx prettier --write "**/*.pug" --plugin="@prettier/plugin-pug"'

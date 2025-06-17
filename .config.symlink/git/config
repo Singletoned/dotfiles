@@ -14,7 +14,7 @@
     branch = auto
     ui = auto
 [core]
-    excludesfile = ~/.gitignore
+    excludesfile = /Users/singletoned/.config/git/ignore
     editor = vim
 [apply]
     whitespace = nowarn

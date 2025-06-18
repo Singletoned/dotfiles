@@ -25,7 +25,6 @@ brew "go"
 brew "starship"
 brew "ripgrep"
 brew "bat"
-brew "exa"
 brew "htop"
 brew "tree"
 brew "fzf"
@@ -42,7 +41,6 @@ brew "tig"
 # Text Processing & Documentation
 brew "pandoc"
 cask "mactex"
-brew "wkhtmltopdf"
 brew "dos2unix"
 brew "editorconfig"
 
@@ -75,14 +73,14 @@ cask "visual-studio-code"
 
 # Browsers
 cask "firefox"
-cask "firefox-developer-edition"
+cask "firefox@developer-edition"
 cask "google-chrome"
 cask "google-chrome@canary"
 cask "arc"
 cask "opera"
 cask "floorp"
 cask "choosy"
-cask "brave"
+cask "brave-browser"
 cask "orion"
 
 # Terminal & System Tools

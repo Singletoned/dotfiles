@@ -37,7 +37,7 @@ if ! groups | grep -q '\badmin\b'; then
 fi
 
 # Install Homebrew if not present
-if ! command -v brew &> /dev/null; then
+if [ ! -f "/opt/homebrew/bin/brew" ]; then
     print_step "Installing Homebrew..."
     print_warning "Homebrew installation requires sudo access"
     print_warning "You may be prompted for your password"
@@ -46,11 +46,7 @@ if ! command -v brew &> /dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     
     # Add Homebrew to PATH for this session
-    if [[ $(uname -m) == "arm64" ]]; then
-        eval "$(/opt/homebrew/bin/brew shellenv)"
-    else
-        eval "$(/usr/local/bin/brew shellenv)"
-    fi
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 else
     print_step "Homebrew already installed ✓"
 fi

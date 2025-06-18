@@ -41,6 +41,7 @@ brew "tig"
 
 # Text Processing & Documentation
 brew "pandoc"
+cask "mactex"
 brew "wkhtmltopdf"
 brew "dos2unix"
 brew "editorconfig"

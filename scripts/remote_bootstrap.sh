@@ -45,11 +45,12 @@ if [ ! -f "/opt/homebrew/bin/brew" ]; then
     # Install Homebrew - it will handle the sudo prompts itself
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     
-    # Add Homebrew to PATH for this session
-    eval "$(/opt/homebrew/bin/brew shellenv)"
 else
     print_step "Homebrew already installed ✓"
 fi
+
+# Add Homebrew to PATH for this session
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Install git and GitHub CLI first (needed for repo access)
 print_step "Installing git and GitHub CLI..."

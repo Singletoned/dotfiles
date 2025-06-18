@@ -93,6 +93,10 @@ if ! gh auth status &> /dev/null; then
     HOSTNAME=$(hostname)
     gh ssh-key add "$SSH_KEY_PATH.pub" --title "$HOSTNAME"
     print_step "SSH key added to GitHub ✓"
+    
+    # Wait for SSH key to propagate to GitHub
+    print_step "Waiting for SSH key to propagate..."
+    sleep 5
 else
     print_step "Already authenticated with GitHub ✓"
     
@@ -105,7 +109,21 @@ fi
 DOTFILES_DIR="$HOME/.dotfiles"
 if [ ! -d "$DOTFILES_DIR" ]; then
     print_step "Cloning dotfiles repository..."
-    git clone git@github.com:singletoned/.dotfiles.git "$DOTFILES_DIR"
+    
+    # Retry clone up to 3 times
+    for i in {1..3}; do
+        if git clone git@github.com:singletoned/.dotfiles.git "$DOTFILES_DIR"; then
+            break
+        else
+            print_warning "Clone attempt $i failed, retrying in 10 seconds..."
+            sleep 10
+        fi
+    done
+    
+    if [ ! -d "$DOTFILES_DIR" ]; then
+        print_error "Failed to clone dotfiles repository after 3 attempts"
+        exit 1
+    fi
 else
     print_step "Dotfiles repository already exists ✓"
 fi

@@ -110,6 +110,10 @@ DOTFILES_DIR="$HOME/.dotfiles"
 if [ ! -d "$DOTFILES_DIR" ]; then
     print_step "Cloning dotfiles repository..."
     
+    # Ensure SSH agent is running and key is loaded before clone
+    eval "$(ssh-agent -s)"
+    ssh-add "$SSH_KEY_PATH" 2>/dev/null || true
+    
     # Retry clone up to 3 times
     for i in {1..3}; do
         if git clone git@github.com:singletoned/.dotfiles.git "$DOTFILES_DIR"; then

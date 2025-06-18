@@ -29,9 +29,20 @@ if [[ "$OSTYPE" != "darwin"* ]]; then
     exit 1
 fi
 
+# Check if user has admin privileges
+if ! groups | grep -q '\badmin\b'; then
+    print_error "This script requires administrator privileges"
+    print_error "Please ensure your user account is an Administrator"
+    exit 1
+fi
+
 # Install Homebrew if not present
 if ! command -v brew &> /dev/null; then
     print_step "Installing Homebrew..."
+    print_warning "Homebrew installation requires sudo access"
+    print_warning "You may be prompted for your password"
+    
+    # Install Homebrew - it will handle the sudo prompts itself
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     
     # Add Homebrew to PATH for this session

@@ -102,7 +102,7 @@ else
     gh ssh-key add "$SSH_KEY_PATH.pub" --title "$HOSTNAME" 2>/dev/null || print_warning "SSH key might already be added to GitHub"
 fi
 
-# Clone dotfiles repository
+# Clone or update dotfiles repository
 DOTFILES_DIR="$HOME/.dotfiles"
 if [ ! -d "$DOTFILES_DIR" ]; then
     print_step "Cloning dotfiles repository..."
@@ -111,10 +111,14 @@ if [ ! -d "$DOTFILES_DIR" ]; then
     eval "$(ssh-agent -s)"
     ssh-add "$SSH_KEY_PATH" 2>/dev/null || true
     
-    git clone git@github.com:singletoned/dotfiles.git "$DOTFILES_DIR"
-
+    git clone git@github.com:singletoned/.dotfiles.git "$DOTFILES_DIR"
 else
-    print_step "Dotfiles repository already exists ✓"
+    print_step "Dotfiles repository already exists, updating..."
+    cd "$DOTFILES_DIR"
+    git fetch origin
+    git checkout main
+    git pull origin main
+    cd -
 fi
 
 # Change to dotfiles directory and install packages

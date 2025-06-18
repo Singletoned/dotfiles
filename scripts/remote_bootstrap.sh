@@ -114,20 +114,8 @@ if [ ! -d "$DOTFILES_DIR" ]; then
     eval "$(ssh-agent -s)"
     ssh-add "$SSH_KEY_PATH" 2>/dev/null || true
     
-    # Retry clone up to 3 times
-    for i in {1..3}; do
-        if git clone git@github.com:singletoned/.dotfiles.git "$DOTFILES_DIR"; then
-            break
-        else
-            print_warning "Clone attempt $i failed, retrying in 10 seconds..."
-            sleep 10
-        fi
-    done
-    
-    if [ ! -d "$DOTFILES_DIR" ]; then
-        print_error "Failed to clone dotfiles repository after 3 attempts"
-        exit 1
-    fi
+    git clone git@github.com:singletoned/dotfiles.git "$DOTFILES_DIR"
+
 else
     print_step "Dotfiles repository already exists ✓"
 fi

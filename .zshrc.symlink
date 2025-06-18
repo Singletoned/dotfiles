@@ -1,68 +1,93 @@
-eval $(ssh-agent)
+# Environment setup
+export TERM='xterm-256color'
+export XDG_CONFIG_HOME="$HOME/.config"
+
+# Start SSH agent
+eval $(ssh-agent) &>/dev/null
+
+# Homebrew setup
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-eval "$(starship init zsh)"
+# PATH setup - consolidate all PATH modifications
+export PATH="${HOME}/.local/bin:${HOME}/bin:${PATH}"
+export PATH="$PATH:/Users/singletoned/.cargo/bin"
 
-[ -f ~/.aliases ] && source ~/.aliases
+# History configuration
+HISTFILE=~/.zsh_history
+HISTSIZE=50000
+SAVEHIST=50000
+setopt APPEND_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt SHARE_HISTORY
 
-export TERM='xterm-256color'
+# Directory navigation
+setopt AUTO_PUSHD
+setopt PUSHD_IGNORE_DUPS
+setopt PUSHD_SILENT
 
-if type brew &>/dev/null
-then
+# Completion setup
+setopt NO_MENU_COMPLETE
+setopt BASH_AUTO_LIST
+setopt NO_AUTO_MENU
+
+if type brew &>/dev/null; then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
   autoload -Uz compinit
-  compinit -i
+
+  # Only run compinit once per day for performance
+  if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+    compinit
+  else
+    compinit -C
+  fi
 fi
 
+# Key bindings
 bindkey -e
-
 bindkey "\C-p" history-beginning-search-backward
 bindkey "\C-n" history-beginning-search-forward
 bindkey "\e[A" history-search-backward
 bindkey "\e[B" history-search-forward
 
-XDG_CONFIG_HOME="$HOME/.config"
+# Load aliases
+[ -f ~/.aliases ] && source ~/.aliases
 
-export PATH="${HOME}/.local/bin:${HOME}/bin:${PATH}"
-
+# Python virtual environment setup
 export VIRTUAL_ENV_DISABLE_PROMPT=true
-
-source ~/.envs/default/bin/activate
 export WORKON_HOME=$HOME/.envs
 export PROJECT_HOME=$HOME/src
-export VIRTUALENVWRAPPER_PYTHON=~/.envs/default/bin/python
-source virtualenvwrapper.sh
-
 export PIP_REQUIRE_VIRTUALENV=true
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+if [ -f ~/.envs/default/bin/activate ]; then
+    source ~/.envs/default/bin/activate
+    export VIRTUALENVWRAPPER_PYTHON=~/.envs/default/bin/python
+    if command -v virtualenvwrapper.sh &>/dev/null; then
+        source virtualenvwrapper.sh
+    fi
+fi
 
-setopt APPENDHISTORY
-
-setopt NO_MENU_COMPLETE
-setopt BASH_AUTO_LIST
-setopt NO_AUTO_MENU
-
+# Tool configurations
 export RIPGREP_CONFIG_PATH="${HOME}/.config/ripgrep"
 
-# alias reload!='. ~/.zshrc'
-# alias mirror="wget -rkmpxE --adjust-extension --random-wait"
+# Aliases
 alias create-project="mkvirtualenv ${PWD##*/} && setvirtualenvproject && pip install -r requirements.txt"
-# alias load_env="export $(cat .env | xargs)"
 
+# Functions
 em() {
-     osascript -e 'tell application "System Events" to set frontmost of process "Emacs" to true'
-    if [[ $1 == *:* ]]
-    then
-	$(brew --prefix)/bin/emacsclient -n +${1##*:} ${1%%:*}
+    osascript -e 'tell application "System Events" to set frontmost of process "Emacs" to true'
+    if [[ $1 == *:* ]]; then
+        $(brew --prefix)/bin/emacsclient -n +${1##*:} ${1%%:*}
     else
-	$(brew --prefix)/bin/emacsclient -n $1
+        $(brew --prefix)/bin/emacsclient -n $1
     fi
 }
 
-eval "$(uv generate-shell-completion zsh)"
-eval "$(uvx --generate-shell-completion zsh)"
+# Shell completions - load conditionally
+command -v starship &>/dev/null && eval "$(starship init zsh)"
+command -v llm &>/dev/null && eval "$(_LLM_COMPLETE=zsh_source llm)"
+command -v uv &>/dev/null && eval "$(uv generate-shell-completion zsh)"
+command -v uvx &>/dev/null && eval "$(uvx --generate-shell-completion zsh)"

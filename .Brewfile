@@ -2,7 +2,6 @@
 # Install with: brew bundle --file=.Brewfile
 
 # Taps
-tap "homebrew/bundle"
 tap "railwaycat/emacsmacport"
 
 # System Dependencies

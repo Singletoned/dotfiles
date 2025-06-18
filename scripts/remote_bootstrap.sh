@@ -55,7 +55,7 @@ else
     print_step "Homebrew already installed ✓"
 fi
 
-# Install git and GitHub CLI
+# Install git and GitHub CLI first (needed for repo access)
 print_step "Installing git and GitHub CLI..."
 brew install git gh
 
@@ -110,8 +110,11 @@ else
     print_step "Dotfiles repository already exists ✓"
 fi
 
-# Change to dotfiles directory and run setup
+# Change to dotfiles directory and install packages
 cd "$DOTFILES_DIR"
+
+print_step "Installing packages from Brewfile..."
+brew bundle --file=.Brewfile
 
 print_step "Running dotfiles installation..."
 make install

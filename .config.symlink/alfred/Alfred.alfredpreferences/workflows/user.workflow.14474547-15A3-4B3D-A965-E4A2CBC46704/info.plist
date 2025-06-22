@@ -23,13 +23,13 @@
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string></string>
+	<string>Ed Singleton</string>
 	<key>description</key>
 	<string></string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Windows</string>
+	<string>Maximise Window</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -73,7 +73,7 @@
 		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>A simple workflow to maximise a window rather than going full screen</string>
 	<key>uidata</key>
 	<dict>
 		<key>7CE61065-64BA-4B2A-908C-F2803C73CAE4</key>
@@ -95,6 +95,10 @@
 	</dict>
 	<key>userconfigurationconfig</key>
 	<array/>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>0.1</string>
 	<key>webaddress</key>
 	<string></string>
 </dict>

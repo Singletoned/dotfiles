@@ -121,6 +121,25 @@ else
     cd -
 fi
 
+# Clone or update emacs.d repository
+EMACS_DIR="$HOME/.emacs.d"
+if [ ! -d "$EMACS_DIR" ]; then
+    print_step "Cloning emacs.d repository..."
+    
+    # Ensure SSH agent is running and key is loaded before clone
+    eval "$(ssh-agent -s)"
+    ssh-add "$SSH_KEY_PATH" 2>/dev/null || true
+    
+    git clone git@github.com:Singletoned/emacs.d.git "$EMACS_DIR"
+else
+    print_step "Emacs.d repository already exists, updating..."
+    cd "$EMACS_DIR"
+    git fetch origin
+    git checkout main || git checkout master  # Handle both main and master branches
+    git pull origin $(git rev-parse --abbrev-ref HEAD)
+    cd -
+fi
+
 # Change to dotfiles directory and install packages
 cd "$DOTFILES_DIR"
 

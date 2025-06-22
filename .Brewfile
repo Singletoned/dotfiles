@@ -12,6 +12,7 @@ brew "mas"
 brew "git"
 brew "gh"
 brew "svn"
+brew "just"
 
 # Programming Languages & Runtimes
 brew "python"
@@ -93,6 +94,10 @@ cask "alfred"
 cask "spotify"
 cask "whatsapp"
 cask "iina"
+
+# AI
+cask "Claude"
+cask "ChatGPT"
 
 # Fonts
 cask "font-andale-mono"
